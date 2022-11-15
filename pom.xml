@@ -25,9 +25,12 @@
         <!--        <repo.proxy.url>https://repo1.maven.org/maven2</repo.proxy.url>-->
         <!--        <repo.external.url>https://repo1.maven.org/maven2</repo.external.url>-->
 
-        <local.nexus.snapshots.url>http://192.168.3.233/nexus/content/repositories/snapshots/
-        </local.nexus.snapshots.url>
-        <local.nexus.releases.url>http://192.168.3.233/nexus/content/repositories/releases/</local.nexus.releases.url>
+        <!--        <local.nexus.snapshots.url>http://192.168.3.233/nexus/content/repositories/snapshots/-->
+        <!--        </local.nexus.snapshots.url>-->
+        <!--        <local.nexus.releases.url>http://192.168.3.233/nexus/content/repositories/releases/</local.nexus.releases.url>-->
+
+        <local.nexus.snapshots.url>file:D:\\JAVAAPP\\maven-repo</local.nexus.snapshots.url>
+        <local.nexus.releases.url>file:D:\\JAVAAPP\\maven-repo</local.nexus.releases.url>
     </properties>
 
     <dependencyManagement>
@@ -173,4 +176,17 @@
     <modules>
         <module>ne-shield-pioneer-common</module>
     </modules>
+
+    <distributionManagement>
+        <repository>
+            <id>local-releases</id>
+            <name>Local Releases Repository</name>
+            <url>${local.nexus.releases.url}</url>
+        </repository>
+        <snapshotRepository>
+            <id>local-snapshots</id>
+            <name>Local Snapshots Repository</name>
+            <url>${local.nexus.snapshots.url}</url>
+        </snapshotRepository>
+    </distributionManagement>
 </project>
